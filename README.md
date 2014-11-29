@@ -64,10 +64,7 @@ The values for a, c, and m for htfrand are taken from Park and
 Miller (2), as are the initials 'htf', which alludes to their title 
 phrase "Hard to Find."  
 
-Park's and Miller's article is also the starting point for 
-a recipe in _Numerical Recipes in C_ (3) (hereinafter _Press_).  
-Further modifications of this module are contemplated, following 
-certain refinements from Press.  
+Park's and Miller's article is also the starting point for a recipe in _Numerical Recipes in C_ (3) (hereinafter _Press_). Further modifications of this module are contemplated, following certain refinements from _Press_.  
 
 ## Tests
 
