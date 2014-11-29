@@ -93,6 +93,12 @@ Istanbul creates a `./reports/coverage` directory. To access an HTML version of 
 $ make view-cov
 ```
 
+#### Test Notes
+
+Test data for this module (tests are not yet fully integrated within the module) for htfrand come from _ML for the Working Programmer_ (4).  
+
+Other test data utilize a toy random number generator using values a = 3, m = 31, and c = 0, which values, and test data, come from Herzog and Lord. (5).
+
 ## References
 
 1. https://en.wikipedia.org/wiki/Linear_congruential_generator
@@ -101,9 +107,15 @@ $ make view-cov
 Good Ones Are Hard To Find". Communications of the ACM 31 
 (10): 1192–1201.
 
-3. William H. Press, et. al, Numerical Recipes in C: The Art
-of Scientific Computing, Section 7.1 "Uniform Deviates" (2d ed.
+3. William H. Press, et. al, *Numerical Recipes in C: The Art
+of Scientific Computing*, Section 7.1 "Uniform Deviates" (2d ed.
 1992).  
+
+4. L.C. Paulson, *ML for the Working Programmer* p. 109 (2d ed. 1996).  
+
+5. Thomas N. Herzog and Graham Lord, *Applications of Monte Carlo Methods to Finance and Insurance* p. 19 (2002) (portions available online at http://books.google.com/books?id=ibpfxsxuCUAC&pg=PA19&lpg=PA19&dq=bays+durham+shuffle&source=bl&ots=r6LmFaOgIA&sig=i3o41mPpHejHNgkSPd7QDx0NIOg&hl=en&sa=X&ei=GJ92VMWDBc3fsASb1oKYDg&ved=0CCQQ6AEwATgU#v=onepage&q=bays%20durham%20shuffle&f=false.  
+
+
 
 
 
