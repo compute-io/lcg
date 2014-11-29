@@ -19,12 +19,15 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 To use the module,
 
 ``` javascript
-var foo = require( 'compute-htfrand' );
+<pre>
+var htfmod = require( 'compute-htfrand' );
+var htfrand = htfmod.makeRand(seed);
+</pre>
 ```
 
-#### foo( arr )
+#### htfrand()
 
-What does this function do?
+Generates pseudorandom numbers.
 
 
 ## Examples
