@@ -19,10 +19,8 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 To use the module,
 
 ``` javascript
-<pre>
 var htfmod = require( 'compute-htfrand' );
 var htfrand = htfmod.makeRand(seed);
-</pre>
 ```
 
 #### htfrand()
