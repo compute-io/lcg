@@ -21,7 +21,7 @@ var expectedResult = [1043618065,
 1760109362, 270600523, 2108528931, 16480421, 
 519782231, 162430624, 372212905];
 
-var i;
+//var i;
 //for( i = 0; i < 16; i++) {
 //	console.log( i + ') ' + randList[ i ] );
 //}
@@ -36,14 +36,14 @@ describe( 'htfrand', function() {
 	describe( 'randList16 test', function() {
 		it( 'should be equal to expectedResult', function() {
 			assert.deepEqual(randList16, expectedResult);
-		})
-	})
+		});
+	});
 	describe('toyRandList test', function() {
 		it( 'should be equal to toyRandExpectedList', function() {
 			assert.deepEqual( toyRandList, toyRandExpectedList );
-		})
-	})
-})
+		});
+	});
+});
 
 
 
