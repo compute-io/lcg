@@ -1,11 +1,8 @@
 'use strict';
 
-// BEGIN-EXISTING-TESTS
-// TODO Convert to Mocha framework
 
-var i;
-var assert = require( 'chai' ).assert;
-var randMod = require( '../rando' );
+var assert = require( 'assert' );
+var randMod = require( '../lib/index.js' );
 
 var toyRandFunc = randMod.makeRandWithAM(3,31,9);
 var toyRandList = randMod.genRandList( 30, toyRandFunc );
@@ -24,6 +21,7 @@ var expectedResult = [1043618065,
 1760109362, 270600523, 2108528931, 16480421, 
 519782231, 162430624, 372212905];
 
+var i;
 //for( i = 0; i < 16; i++) {
 //	console.log( i + ') ' + randList[ i ] );
 //}
@@ -31,30 +29,46 @@ var expectedResult = [1043618065,
 
 // console.log('toyRandList = ' + toyRandList);
 // console.log('toyRandExpectedList = ' + toyRandExpectedList);
-assert.deepEqual(randList16, expectedResult);
 
-// END-EXISTING-TESTS
+//assert.deepEqual(randList16, expectedResult);
+
+describe( 'htfrand', function() {
+	describe( 'randList16 test', function() {
+		it( 'should be equal to expectedResult', function() {
+			assert.deepEqual(randList16, expectedResult);
+		})
+	})
+	describe('toyRandList test', function() {
+		it( 'should be equal to toyRandExpectedList', function() {
+			assert.deepEqual( toyRandList, toyRandExpectedList );
+		})
+	})
+})
+
+
+
 
 
 
 
 // MODULES //
 
-var // Expectation library:
-	chai = require( 'chai' ),
+//var // Expectation library:
+//	chai = require( 'chai' ),
 
 	// Module to be tested:
-	lib = require( './../lib' );
+//	lib = require( './../lib' );
 
 
 // VARIABLES //
 
-var expect = chai.expect,
-	assert = chai.assert;
+//var expect = chai.expect,
+//	assert = chai.assert;
 
 
 // TESTS //
 
+/*
 describe( 'compute-htfrand', function tests() {
 
 	it( 'should export a function', function test() {
@@ -64,3 +78,5 @@ describe( 'compute-htfrand', function tests() {
 	it( 'should do something' );
 
 });
+*/
+
