@@ -2,8 +2,7 @@ htfrand
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> PRNG
-
+A pseudorandom number generator of linear congruential type.  
 
 ## Installation
 
@@ -66,6 +65,8 @@ phrase "Hard to Find."
 
 Park's and Miller's article is also the starting point for a recipe in _Numerical Recipes in C_ (3) (hereinafter _Press_). Further modifications of this module are contemplated, following certain refinements from _Press_.  
 
+The Press books states that this generator has a period of approximately 2.1e9. (6)  
+
 ## Tests
 
 ### Unit
@@ -115,7 +116,7 @@ of Scientific Computing*, Section 7.1 "Uniform Deviates" (2d ed.
 
 5. Thomas N. Herzog and Graham Lord, *Applications of Monte Carlo Methods to Finance and Insurance* p. 19 (2002) (portions available online at http://books.google.com/books?id=ibpfxsxuCUAC&pg=PA19&lpg=PA19&dq=bays+durham+shuffle&source=bl&ots=r6LmFaOgIA&sig=i3o41mPpHejHNgkSPd7QDx0NIOg&hl=en&sa=X&ei=GJ92VMWDBc3fsASb1oKYDg&ved=0CCQQ6AEwATgU#v=onepage&q=bays%20durham%20shuffle&f=false.  
 
-
+6. Press, p. 279.
 
 
 
