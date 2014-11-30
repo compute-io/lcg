@@ -118,7 +118,7 @@ of Scientific Computing*, Section 7.1 "Uniform Deviates" (2d ed.
 
 6. Press, p. 279.
 
-7. Bays, Carter, & Durham, S.D. 1976. ACM Transactions on Mathematical Software, Vol. 2, p. 59.  See also Herzog and Lord, cited above at n. 5.  
+7. Bays, Carter, & Durham, S.D. 1976. ACM Transactions on Mathematical Software, Vol. 2, p. 59.  See also _Press_, p. 280-81, and Herzog and Lord, cited above at n. 5.  
 
 
 ## License
