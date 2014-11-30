@@ -63,7 +63,7 @@ The values for a, c, and m for htfrand are taken from Park and
 Miller (2), as are the initials 'htf', which alludes to their title 
 phrase "Hard to Find."  
 
-Park's and Miller's article is also the starting point for a recipe in _Numerical Recipes in C_ (3) (hereinafter _Press_). Further modifications of this module are contemplated, following certain refinements from _Press_.  
+Park's and Miller's article is also the starting point for a recipe in _Numerical Recipes in C_ (3) (hereinafter _Press_). Further modifications of this module are contemplated, following certain refinements from _Press_, including, in particular, a Bays-Durham shuffle.  (7).      
 
 The Press books states that this generator has a period of approximately 2.1e9. (6)  
 
@@ -118,7 +118,7 @@ of Scientific Computing*, Section 7.1 "Uniform Deviates" (2d ed.
 
 6. Press, p. 279.
 
-
+7. Bays, Carter, & Durham, S.D. 1976. ACM Transactions on Mathematical Software, Vol. 2, p. 59.  See also Herzog and Lord, cited above at n. 5.  
 
 
 ## License
