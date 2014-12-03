@@ -10,6 +10,8 @@ A pseudorandom number generator of linear congruential type.
 $ npm install compute-htfrand
 ```
 
+NOT READY FOR INSTALLATION!
+
 For use in the browser, use [browserify](https://github.com/substack/node-browserify).
 
 
@@ -42,8 +44,7 @@ $ node ./examples/index.js
 
 ## Notes
 
-The module htfrand is a pseudorandom number generator, of the linear
-congruential type.  See the Wikipedia article on this.  (1)
+The module htfrand is a pseudorandom number generator, of the linear congruential type.  See generally the Wikipedia article on linear congruential generators.  (1)
 
 Such generators, including htfrand, are of the form
 
@@ -59,13 +60,11 @@ c = 0
 m = 2^31 - 1 => 2147483647
 </pre>
 
-The values for a, c, and m for htfrand are taken from Park and 
-Miller (2), as are the initials 'htf', which alludes to their title 
-phrase "Hard to Find."  
+The values for a, c, and m for htfrand are taken from Park and Miller (2), as are the initials 'htf', which allude to their title phrase "Hard to Find."  
 
-Park's and Miller's article is also the starting point for a recipe in _Numerical Recipes in C_ (3) (hereinafter _Press_). Further modifications of this module are contemplated, following certain refinements from _Press_, including, in particular, a Bays-Durham shuffle.  (7).      
+Park's and Miller's article is also the starting point for a recipe in the second edition of _Numerical Recipes in C_ (3) (hereinafter _Num. Recipes_). Further modifications of this module are contemplated, following certain refinements from _Press_, including, in particular, a Bays-Durham shuffle.  (7).      
 
-The Press books states that this generator has a period of approximately 2.1e9. (6)  
+_Num. Recipes_ states that this generator has a period of approximately 2.1e9. (6)  
 
 ## Tests
 
