@@ -2,18 +2,16 @@ htfrand
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-A pseudorandom number generator of linear congruential type.  
+A linear congruential pseudorandom number generator. 
 
 ## Installation
+
+*Please note: this module is not ready for installation.*
 
 ``` bash
 $ npm install compute-htfrand
 ```
-
-NOT READY FOR INSTALLATION!
-
 For use in the browser, use [browserify](https://github.com/substack/node-browserify).
-
 
 ## Usage
 
@@ -28,9 +26,11 @@ var htfrand = htfmod.makeRand(seed);
 
 #### htfrand()
 
-Generates pseudorandom numbers.
+Each call to htfrand() returns a pseudorandom number X: 0 < X < 2,147,483,647.
 
 ## Examples
+
+*Please note: there are no examples as yet.*
 
 ``` javascript
 var foo = require( 'compute-htfrand' );
@@ -44,15 +44,15 @@ $ node ./examples/index.js
 
 ## Notes
 
-The module htfrand is a pseudorandom number generator, of the linear congruential type.  See generally the Wikipedia article on linear congruential generators.  (1)
+The module htfrand is a pseudorandom number generator, of the linear congruential type.  *See generally* Wikipedia on linear congruential generators.  (1)
 
-Such generators, including htfrand, are of the form
+Such generators, including htfrand, are of the form:
 
 <pre>
 	X_n+1 = (a * X_n + c) mod m
 </pre>
 
-Here: 
+In htfrand, the constants a, c, and m have the following values: 
 
 <pre>
 a = 16807
@@ -60,11 +60,10 @@ c = 0
 m = 2^31 - 1 => 2147483647
 </pre>
 
-The values for a, c, and m for htfrand are taken from Park and Miller (2), as are the initials 'htf', which allude to their title phrase "Hard to Find."  
+The values for a, c, and m for htfrand are taken from Park and Miller, "Random Number Generators: Good Ones Are Hard To Find" (2), as are the initials 'htf', from the phrase "Hard to Find" in the title of their article.  Park's and Miller's article is also the starting point for a recipe in the second (1992) edition of _Numerical Recipes in C_ (3) (Numerical Recipes).  Numerical Recipes states that this generator has a period of approximately 2.1e9. (4)  
 
-Park's and Miller's article is also the starting point for a recipe in the second edition of _Numerical Recipes in C_ (3) (hereinafter _Num. Recipes_). Further modifications of this module are contemplated, following certain refinements from _Press_, including, in particular, a Bays-Durham shuffle.  (7).      
+Further modifications of this module are contemplated, following certain refinements from Numerical Recipes, including, in particular, a Bays-Durham shuffle.  (5).      
 
-_Num. Recipes_ states that this generator has a period of approximately 2.1e9. (6)  
 
 ## Tests
 
@@ -95,29 +94,27 @@ $ make view-cov
 
 #### Test Notes
 
-Test data for this module (tests are not yet fully integrated within the module) for htfrand come from _ML for the Working Programmer_ (4).  
+Test data for this module (tests are not yet fully integrated within the module) for htfrand come from _ML for the Working Programmer_ (6).  
 
-Other test data utilize a toy random number generator using values a = 3, m = 31, and c = 0, which values, and test data, come from Herzog and Lord. (5).
+Other test data utilize a toy random number generator using values a = 3, m = 31, and c = 0, which values, and test data, come from Herzog and Lord. (7).
 
 ## References
 
 1. https://en.wikipedia.org/wiki/Linear_congruential_generator
 
-2. S.K. Park and K.W. Miller (1988). "Random Number Generators: 
-Good Ones Are Hard To Find". Communications of the ACM 31 
-(10): 1192–1201.
+2. S.K. Park and K.W. Miller (1988). "Random Number Generators: Good Ones Are Hard To Find". Communications of the ACM 31 (10): 1192-1201.
 
-3. William H. Press, et. al, *Numerical Recipes in C: The Art
-of Scientific Computing*, Section 7.1 "Uniform Deviates" (2d ed.
-1992).  
+3. William H. Press, et. al., *Numerical Recipes in C: The Art of Scientific Computing*, Section 7.1 "Uniform Deviates" (2d ed. 1992) (hereinafter Numerical Recipes).  
 
-4. L.C. Paulson, *ML for the Working Programmer* p. 109 (2d ed. 1996).  
+4. Numerical Recipes, p. 279.
 
-5. Thomas N. Herzog and Graham Lord, *Applications of Monte Carlo Methods to Finance and Insurance* p. 19 (2002) (portions available online at http://books.google.com/books?id=ibpfxsxuCUAC&pg=PA19&lpg=PA19&dq=bays+durham+shuffle&source=bl&ots=r6LmFaOgIA&sig=i3o41mPpHejHNgkSPd7QDx0NIOg&hl=en&sa=X&ei=GJ92VMWDBc3fsASb1oKYDg&ved=0CCQQ6AEwATgU#v=onepage&q=bays%20durham%20shuffle&f=false.  
+5. Bays, Carter, & Durham, S.D. 1976. ACM Transactions on Mathematical Software, Vol. 2, p. 59; Thomas N. Herzog and Graham Lord, *Applications of Monte Carlo Methods to Finance and Insurance* p. 19 (2002) (portions available online at http://books.google.com/books?id=ibpfxsxuCUAC&pg=PA19&lpg=PA19&dq=bays+durham+shuffle&source=bl&ots=r6LmFaOgIA&sig=i3o41mPpHejHNgkSPd7QDx0NIOg&hl=en&sa=X&ei=GJ92VMWDBc3fsASb1oKYDg&ved=0CCQQ6AEwATgU#v=onepage&q=bays%20durham%20shuffle&f=false.  See also Numerical Recipes, p. 280-81.
 
-6. Press, p. 279.
+6. L.C. Paulson, *ML for the Working Programmer*, p. 109 (2d ed. 1996).  
 
-7. Bays, Carter, & Durham, S.D. 1976. ACM Transactions on Mathematical Software, Vol. 2, p. 59.  See also _Press_, p. 280-81, and Herzog and Lord, cited above at n. 5.  
+7. Herzog and Lord, p. __.  
+
+
 
 
 ## License
