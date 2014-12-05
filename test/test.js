@@ -10,8 +10,24 @@ var toyRandExpectedList =
 	[27,19,26,16,17,20,29,25,13,8,24,10,30,28,22,
 	4,12,5,15,14,11,2,6,18,23,7,21,1,3,9];
 
-var randFunc = randMod.makeRand(1);
-var randList = randMod.genRandList(10000, randFunc);
+var htfRandFunc = randMod.makeHtfRand( 1 );
+var randList = randMod.genRandList( 10000, htfRandFunc );
+
+// START Temp code
+var itemp;
+var Ntemp = 33;
+for(itemp = 0; itemp < Ntemp; itemp++) {
+	console.log( randList[ itemp ] );
+}
+
+var randFunc2d = randMod.makeHtfRand( 1 );
+var shuffRand = randMod.mkHtfShuff( randFunc2d );
+
+console.log( "first call to shuffRand = " + shuffRand() );
+
+// END Temp code
+
+
 randList.reverse();
 var randList16 = randList.slice(0,16);
 
@@ -21,18 +37,21 @@ var expectedResult = [1043618065,
 1760109362, 270600523, 2108528931, 16480421, 
 519782231, 162430624, 372212905];
 
-//var i;
-//for( i = 0; i < 16; i++) {
-//	console.log( i + ') ' + randList[ i ] );
-//}
-//console.log(randList16);
+var Ktoy = 8;
+var shuffTabToy = new Array( Ktoy );
+var itoy;
+var htfShuffToy;
 
-// console.log('toyRandList = ' + toyRandList);
-// console.log('toyRandExpectedList = ' + toyRandExpectedList);
+// Make another toyRandFun
+var toyRandFunc2 = randMod.makeRandWithAM(3,31,9);
 
-//assert.deepEqual(randList16, expectedResult);
+for(itoy = 0; itoy < Ktoy; itoy++) {
+	shuffTabToy[ itoy ] = toyRandFunc2();
+}
 
-describe( 'htfrand', function() {
+htfShuffToy = randMod.mkHtfShuffWithK(toyRandFunc2, shuffTabToy, Ktoy);
+
+describe( 'htfrand module tests', function() {
 	describe( 'randList16 test', function() {
 		it( 'should be equal to expectedResult', function() {
 			assert.deepEqual(randList16, expectedResult);
@@ -43,12 +62,27 @@ describe( 'htfrand', function() {
 			assert.deepEqual( toyRandList, toyRandExpectedList );
 		});
 	});
+	describe('htfShuffToy test', function() {
+		it( 'should be equal to 29', function() {
+			assert.equal( htfShuffToy(), 29 );
+		});
+		it( 'should be equal to 19', function() {
+			assert.equal( htfShuffToy(), 19 );
+		});
+		it( 'should be equal to 8', function() {
+			assert.equal( htfShuffToy(), 8 );
+		});
+		it( 'should be equal to 16', function() {
+			assert.equal( htfShuffToy(), 16 );
+		});
+		it( 'should be equal to 25', function() {
+			assert.equal( htfShuffToy(), 25 );
+		});
+		it( 'should be equal to 20', function() {
+			assert.equal( htfShuffToy(), 20 );
+		});
+	});
 });
-
-
-
-
-
 
 
 // MODULES //
