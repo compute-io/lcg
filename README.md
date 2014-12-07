@@ -9,40 +9,24 @@ A linear congruential pseudorandom number generator.
 *Please note: this module is not ready for installation.*
 
 ``` bash
-$ npm install compute-htfrand
+$ npm install compute-lcg
 ```
 For use in the browser, use [browserify](https://github.com/substack/node-browserify).
 
-## Usage: htfrand
+## Usage: lcg
 
-To use the module with htfrand:
-
-``` javascript
-var htfmod = require( 'compute-htfrand' );
-
-// seed !== 0
-var htfrand = htfmod.makeRand( seed );
-```
-
-#### htfrand()
-
-Each call to htfrand() returns a pseudorandom number X: 0 < X < 2,147,483,647.
-
-## Usage: htfshuff
-
-To use the module with htfshuff:
+To use the module with lcg:
 
 ``` javascript
-var htfmod = require( 'compute-htfrand' );
+var lcgmod = require( 'compute-lcg' );
 
 // seed !== 0
-var htfrand = htfmod.makeRand( seed );
-var htfshuff = htfmod.mkHtfShuff( htfrand );
+var lcgRand = lcgmod.makeRand( seed );
 ```
 
-#### htfshuff()
+#### lcgRand()
 
-Each call to htfshuff() returns a pseudorandom number X: 0 < X < 2,147,483,647.
+Each call to lcgRand() returns a pseudorandom number X: 0 < X < 2,147,483,647.
 
 ## Examples
 
@@ -79,30 +63,6 @@ m = 2^31 - 1 => 2147483647
 The values for a, c, and m in htfrand are taken from Park and Miller, "Random Number Generators: Good Ones Are Hard To Find" (2); the letters 'htf' in htfrand are from the phrase "Hard to Find" in the title of the article.  Park's and Miller's article is also the starting point for a recipe in the second (1992) edition of _Numerical Recipes in C_ (3).  
 
 Numerical Recipes states that this generator has a period of approximately 2.1e9. (4)  
-
-A second function, htfshuff, is also exported by this module.  The htfshuff function, following Numerical Recipes, subjects the output of htfrand to a Bays-Durham shuffle.  
-
-### Bays-Durham Shuffle Description
-
-I have not seen the Bays-Durham paper; Herzog and Lord, however, have a good write-up of the algorithm, and Numerical Recipes has an illustrative figure.  Here is a general description.
-
-Suppose, by way of example, you have a (not very good) random number generator rand() that outputs 5, 10, 15, ...
-
-To Bays-Durham-shuffle the output of rand(), make a table T of size K, let us say, for example, 6.  
-
-1. Initialize T with K successive calls to rand() => T1 = (5 10 15 20 25 30). 
-
-2. Get the next random number R from another call to rand() => R1 = 35.  
-
-3. Generate an index j into T from R by: (R + 1) mod K. => j1 = (35 + 1) mod 6 = 0.  
-
-4. Get the next shuffled output from T[j] => our first shuffled output number X1 is T[j1] => T[0] => 5.  
-
-5. Now replace T[j] with R. => T[0] = 35 => T2 = (35 10 25 20 25 30).  
-
-6. Repeat steps 2-5 for X2, X3, etc.  
-
-For example, to get X2:  R2 = rand() => 40.  j2 = (40 + 1) mod 6 => 5.  X2 = T[5] => 30.  Set T[5] to R2 => T[5] = 40 => T2 = (35 10 25 20 25 40).
 
 ## Tests
 
