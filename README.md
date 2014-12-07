@@ -107,11 +107,8 @@ Other tests utilize a toy random number generator using values a = 3, m = 31, an
 
 4. Numerical Recipes, p. 279.
 
-5. Bays, Carter, & Durham, S.D. 1976. ACM Transactions on Mathematical Software, Vol. 2, p. 59; Thomas N. Herzog and Graham Lord, *Applications of Monte Carlo Methods to Finance and Insurance* p. 19 (2002) (portions available online at http://books.google.com/books?id=ibpfxsxuCUAC&pg=PA19&lpg=PA19&dq=bays+durham+shuffle&source=bl&ots=r6LmFaOgIA&sig=i3o41mPpHejHNgkSPd7QDx0NIOg&hl=en&sa=X&ei=GJ92VMWDBc3fsASb1oKYDg&ved=0CCQQ6AEwATgU#v=onepage&q=bays%20durham%20shuffle&f=false.  See also Numerical Recipes, p. 280-81.
+5. L.C. Paulson, *ML for the Working Programmer*, p. 109 (2d ed. 1996).  
 
-6. L.C. Paulson, *ML for the Working Programmer*, p. 109 (2d ed. 1996).  
-
-7. Herzog and Lord, p. __.  
 
 ## License
 
