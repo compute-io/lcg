@@ -20,13 +20,22 @@ To use the module with lcg:
 ``` javascript
 var lcgmod = require( 'compute-lcg' );
 
-// seed !== 0
-var lcgRand = lcgmod.makeRand( seed );
+myRandNum = lcgmod.rand();
+
+or
+
+lcg.srand( <some_number_seed> );
+myRandNum = lcg.rand();
+
 ```
 
-#### lcgRand()
+#### lcg.rand()
 
-Each call to lcgRand() returns a pseudorandom number X: 0 < X < 2,147,483,647.
+Each call to lcg.rand() returns a pseudorandom number X: 0.0 < X < 1.0.
+
+#### lcg.srand( <some_number> )
+
+A call to lcg.srand(n) seeds the random number generator.  If no seed is provided, lcg.rand() is seeded with the system time.  
 
 ## Examples
 
