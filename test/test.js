@@ -1,79 +1,66 @@
 'use strict';
 
+//var assert = require( 'assert' );
 
-var assert = require( 'assert' );
-var randMod = require( '../lib/index.js' );
+var chai = require( 'chai' );
+var assert = chai.assert;
 
-var toyRandFunc = randMod.makeRandWithAM(3,31,9);
-var toyRandList = randMod.genRandList( 30, toyRandFunc );
-var toyRandExpectedList = 
-	[27,19,26,16,17,20,29,25,13,8,24,10,30,28,22,
-	4,12,5,15,14,11,2,6,18,23,7,21,1,3,9];
+var lcg = require( '../lib/index.js' );
 
-var htfRandFunc = randMod.makeHtfRand( 1 );
-var randList = randMod.genRandList( 10000, htfRandFunc );
-
-// START Temp code
-var itemp;
-var Ntemp = 33;
-for(itemp = 0; itemp < Ntemp; itemp++) {
-	console.log( randList[ itemp ] );
-}
-
-console.log( "first call to shuffRand = " + shuffRand() );
-
-// END Temp code
+var NUMBER_TO_GENERATE = 12;
 
 
-randList.reverse();
-var randList16 = randList.slice(0,16);
+//-----------------------------------------------
+// For testing only.
+// 
+// TODO. Provide JSDoc documentation
+// TODO. Test params for type.
+// Returns a list of n random numbers generated
+// by successive calls to randfunc, a function
+// of 0 parameters that generates PRNs with 
+// successive calls.
+function genRandList( n, randFunc ) {
+	var i;
+	var randlist = [ ];
+	for( i = 0; i < n; i++ ) {
+		randlist[ i ] = randFunc();
+	}
+	return randlist;
+};
+	
+// seed = 1
+var testDataNumRec1 = [0.242586125267011, 0.145007362656764, 0.138744172239091, 0.873302822407942, 0.600536210276436, 0.212086116062517, 0.531352662728798, 0.444202482907196, 0.711130221239817, 0.965628377611576, 0.316142517754874, 0.407295906174600];
 
-var expectedResult = [1043618065,
-1484786315, 925166085, 1614852353, 721631166,
-173942219, 1229443779, 789328014, 570809709, 
-1760109362, 270600523, 2108528931, 16480421, 
-519782231, 162430624, 372212905];
+// seed = 12345678
+var testDataNumRec2 = [0.984259987242641, 0.457605587065968, 0.977101817716426, 0.150250359973987, 0.257800082796160, 0.845991555063981, 0.580065960334645, 0.168595344372371, 0.581952866437823, 0.881826220490889, 0.853287790367979, 0.207892714630762];
 
-describe( 'htfrand module tests', function() {
-	describe( 'randList16 test', function() {
-		it( 'should be equal to expectedResult', function() {
-			assert.deepEqual(randList16, expectedResult);
+var lcgRandLs1 = genRandList( NUMBER_TO_GENERATE, lcg.rand );
+
+lcg.srand( 12345678 );
+var lcgRandLs2 = genRandList( NUMBER_TO_GENERATE, lcg.rand );
+
+var epsilon = 1e-12;
+
+describe( 'lcg rand module tests', function() {
+	describe( 'seed = 1, lcgRandLs1 prns', function() {
+		it( 'should be closeTo testDataNumRec1 prns', function() {
+			var i;
+			for(i = 0; i < NUMBER_TO_GENERATE; i++) {
+				console.log("Comparing " + testDataNumRec1[i] + " and " + lcgRandLs1[i]);
+				assert.closeTo(testDataNumRec1[i], lcgRandLs1[i], epsilon, 'close');
+			}
 		});
 	});
-	describe('toyRandList test', function() {
-		it( 'should be equal to toyRandExpectedList', function() {
-			assert.deepEqual( toyRandList, toyRandExpectedList );
+	describe( 'seed = 12345678, lcgRandLs2 prns', function() {
+		it( 'should be closeTo testDataNumRec2 prns', function() {
+			var i;
+			for(i = 0; i < NUMBER_TO_GENERATE; i++) {
+				console.log("Comparing " + testDataNumRec2[i] + " and " + lcgRandLs2[i]);
+				assert.closeTo(testDataNumRec2[i], lcgRandLs2[i], epsilon, 'close');
+			}
 		});
 	});
 });
 
 
-// MODULES //
-
-//var // Expectation library:
-//	chai = require( 'chai' ),
-
-	// Module to be tested:
-//	lib = require( './../lib' );
-
-
-// VARIABLES //
-
-//var expect = chai.expect,
-//	assert = chai.assert;
-
-
-// TESTS //
-
-/*
-describe( 'compute-htfrand', function tests() {
-
-	it( 'should export a function', function test() {
-		expect( lib ).to.be.a( 'function' );
-	});
-
-	it( 'should do something' );
-
-});
-*/
 
