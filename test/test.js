@@ -1,14 +1,11 @@
 'use strict';
 
-//var assert = require( 'assert' );
-
 var chai = require( 'chai' );
 var assert = chai.assert;
 
 var lcg = require( '../lib/index.js' );
 
-var NUMBER_TO_GENERATE = 12;
-
+var N_TO_GENERATE = 12;
 
 //-----------------------------------------------
 // For testing only.
@@ -34,10 +31,11 @@ var testDataNumRec1 = [0.242586125267011, 0.145007362656764, 0.138744172239091, 
 // seed = 12345678
 var testDataNumRec2 = [0.984259987242641, 0.457605587065968, 0.977101817716426, 0.150250359973987, 0.257800082796160, 0.845991555063981, 0.580065960334645, 0.168595344372371, 0.581952866437823, 0.881826220490889, 0.853287790367979, 0.207892714630762];
 
-var lcgRandLs1 = genRandList( NUMBER_TO_GENERATE, lcg.rand );
+lcg.srand( 1 );
+var lcgRandLs1 = genRandList( N_TO_GENERATE, lcg.rand );
 
 lcg.srand( 12345678 );
-var lcgRandLs2 = genRandList( NUMBER_TO_GENERATE, lcg.rand );
+var lcgRandLs2 = genRandList( N_TO_GENERATE, lcg.rand );
 
 var epsilon = 1e-12;
 
@@ -45,7 +43,7 @@ describe( 'lcg rand module tests', function() {
 	describe( 'seed = 1, lcgRandLs1 prns', function() {
 		it( 'should be closeTo testDataNumRec1 prns', function() {
 			var i;
-			for(i = 0; i < NUMBER_TO_GENERATE; i++) {
+			for(i = 0; i < N_TO_GENERATE; i++) {
 				console.log("Comparing " + testDataNumRec1[i] + " and " + lcgRandLs1[i]);
 				assert.closeTo(testDataNumRec1[i], lcgRandLs1[i], epsilon, 'close');
 			}
@@ -54,7 +52,7 @@ describe( 'lcg rand module tests', function() {
 	describe( 'seed = 12345678, lcgRandLs2 prns', function() {
 		it( 'should be closeTo testDataNumRec2 prns', function() {
 			var i;
-			for(i = 0; i < NUMBER_TO_GENERATE; i++) {
+			for(i = 0; i < N_TO_GENERATE; i++) {
 				console.log("Comparing " + testDataNumRec2[i] + " and " + lcgRandLs2[i]);
 				assert.closeTo(testDataNumRec2[i], lcgRandLs2[i], epsilon, 'close');
 			}
