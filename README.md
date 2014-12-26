@@ -6,8 +6,6 @@ A linear congruential pseudorandom number generator.
 
 ## Installation
 
-*Please note: this module is not ready for installation.*
-
 ``` bash
 $ npm install compute-lcg
 ```
@@ -18,14 +16,14 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 To use the module with lcg:
 
 ``` javascript
-var lcgmod = require( 'compute-lcg' );
+var lcg = require( 'compute-lcg' );
 
-myRandNum = lcgmod.rand();
+randNum = lcg.rand();
 
 or
 
-lcg.srand( <some_number_seed> );
-myRandNum = lcg.rand();
+lcg.srand( <number_seed> );
+randNum = lcg.rand();
 
 ```
 
@@ -35,14 +33,12 @@ Each call to lcg.rand() returns a pseudorandom number X: 0.0 < X < 1.0.
 
 #### lcg.srand( <some_number> )
 
-A call to lcg.srand(n) seeds the random number generator.  If no seed is provided, lcg.rand() is seeded with the system time.  
+A call to lcg.srand( nseed ) seeds the random number generator with the number nseed.  If srand() is not called first, lcg.rand() is seeded with the system time.  
 
 ## Examples
 
-*Please note: there are no examples as yet.*
-
 ``` javascript
-var foo = require( 'compute-htfrand' );
+var lcg = require( 'compute-lcg' );
 ```
 
 To run the example code from the top-level application directory,
@@ -53,15 +49,15 @@ To run the example code from the top-level application directory,
 
 ## Notes
 
-The module htfrand is a pseudorandom number generator, of the linear congruential type.  *See generally* Wikipedia on linear congruential generators.  (1)
+The module lcg provides a pseudorandom number generator, of the linear congruential type.  For a general reference, see the Wikipedia article on linear congruential generators (1).
 
-Such generators, including htfrand, are of the form:
+Such generators, including lcg.rand(), are of the form:
 
 <pre>
-X_n+1 = (a * X_n + c) mod m
+X_n+1 = ( a*X_n + c ) mod m
 </pre>
 
-In htfrand, the constants a, c, and m have the following values: 
+In lcg.rand(), the constants a, c, and m have the following values: 
 
 <pre>
 a = 16807
@@ -69,7 +65,9 @@ c = 0
 m = 2^31 - 1 => 2147483647
 </pre>
 
-The values for a, c, and m in htfrand are taken from Park and Miller, "Random Number Generators: Good Ones Are Hard To Find" (2); the letters 'htf' in htfrand are from the phrase "Hard to Find" in the title of the article.  Park's and Miller's article is also the starting point for a recipe in the second (1992) edition of _Numerical Recipes in C_ (3).  
+The values for a, c, and m in lcg are taken from Park and Miller, "Random Number Generators: Good Ones Are Hard To Find" (2); Park's and Miller's article is also the basis for a recipe in the second (1992) edition of _Numerical Recipes in C_ (3); the code in this module for the most part follows _Numerical Recipes_.  
+
+### Period
 
 Numerical Recipes states that this generator has a period of approximately 2.1e9. (4)  
 
@@ -102,22 +100,17 @@ $ make view-cov
 
 #### Test Notes
 
-Test data for this module, for htfrand, come from _ML for the Working Programmer_ (6).  
-
-Other tests utilize a toy random number generator using values a = 3, m = 31, and c = 0, which values, and test data, come from Herzog and Lord. (7).
+Test data for this module are generated from the C code in *Numerical Recipes*.
 
 ## References
 
-1. https://en.wikipedia.org/wiki/Linear_congruential_generator
+1. https://en.wikipedia.org/wiki/Linear_ congruential_ generator
 
 2. S.K. Park and K.W. Miller (1988). "Random Number Generators: Good Ones Are Hard To Find". Communications of the ACM 31 (10): 1192-1201.
 
 3. William H. Press, et. al., *Numerical Recipes in C: The Art of Scientific Computing*, Section 7.1 "Uniform Deviates" (2d ed. 1992) (hereinafter Numerical Recipes).  
 
 4. Numerical Recipes, p. 279.
-
-5. L.C. Paulson, *ML for the Working Programmer*, p. 109 (2d ed. 1996).  
-
 
 ## License
 
