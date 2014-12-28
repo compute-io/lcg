@@ -1,7 +1,7 @@
 {
-  "name": "compute-htfrand",
+  "name": "compute-lcg",
   "version": "0.0.0",
-  "description": "PRNG",
+  "description": "A linear congruential pseudorandom number generator (lcg).",
   "author": {
     "name": "rgizz",
     "email": "rgizz@users.noreply.github.com"
@@ -20,15 +20,25 @@
   "main": "./lib",
   "repository": {
     "type": "git",
-    "url": "git://github.com/compute-io/htfrand.git"
+    "url": "git://github.com/compute-io/lcg.git"
   },
   "keywords": [
     "compute.io",
     "compute",
-    "computation"
+    "computation",
+    "mathematics",
+    "math",
+    "statistics",
+    "stats",
+    "random",
+    "rand",
+    "generator",
+    "lcg",
+    "seed",
+    "seedable"
   ],
   "bugs": {
-    "url": "https://github.com/compute-io/htfrand/issues"
+    "url": "https://github.com/compute-io/lcg/issues"
   },
   "dependencies": {},
   "devDependencies": {

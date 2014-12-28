@@ -1,8 +1,9 @@
-lcg
+Linear Congruential Generator
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-A linear congruential pseudorandom number generator. 
+> A linear congruential pseudorandom number generator (lcg). 
+
 
 ## Installation
 
@@ -11,65 +12,79 @@ $ npm install compute-lcg
 ```
 For use in the browser, use [browserify](https://github.com/substack/node-browserify).
 
-## Usage: lcg
 
-To use the module with lcg:
+## Usage
 
-``` javascript
-var lcg = require( 'compute-lcg' );
-
-randNum = lcg.rand();
-
-or
-
-lcg.srand( <number_seed> );
-randNum = lcg.rand();
-
-```
-
-#### lcg.rand()
-
-Each call to lcg.rand() returns a pseudorandom number X: 0.0 < X < 1.0.
-
-#### lcg.srand( <some_number> )
-
-A call to lcg.srand( nseed ) seeds the random number generator with the number nseed.  If srand() is not called first, lcg.rand() is seeded with the system time.  
-
-## Examples
+To use the module,
 
 ``` javascript
 var lcg = require( 'compute-lcg' );
 ```
 
-To run the example code from the top-level application directory,
 
-   ``` bash
-   $ node ./examples/index.js
-   ```
+#### lcg( [seed] )
+
+Returns a pseudorandom number generator.
+
+``` javascript
+var rand = lcg();
+```
+
+To seed the generator, provide a `numeric` seed
+
+``` javascript
+var rand = lcg( 1234 );
+```
+
+#### rand()
+
+Returns a pseudorandom floating-point `number` between `0` and `1`.
+
+``` javascript
+var val = rand();
+```
+
 
 ## Notes
 
-The module lcg provides a pseudorandom number generator, of the linear congruential type.  For a general reference, see the Wikipedia article on linear congruential generators (1).
-
-Such generators, including lcg.rand(), are of the form:
+For a general lcg reference, see [Wikipedia](#ref-wikipedia]. Linear congruential generators use the following recurrence relation:
 
 <pre>
 X_n+1 = ( a*X_n + c ) mod m
 </pre>
 
-In lcg.rand(), the constants a, c, and m have the following values: 
+In this implementation, the constants `a`, `c`, and `m` have the following values: 
 
 <pre>
 a = 16807
 c = 0
-m = 2^31 - 1 => 2147483647
+m = 2^31 - 1 // 2147483647
 </pre>
 
-The values for a, c, and m in lcg are taken from Park and Miller, "Random Number Generators: Good Ones Are Hard To Find" (2); Park's and Miller's article is also the basis for a recipe in the second (1992) edition of _Numerical Recipes in C_ (3); the code in this module for the most part follows _Numerical Recipes_.  
+The values for `a`, `c`, and `m` are taken from Park and Miller, "Random Number Generators: Good Ones Are Hard To Find" [2](#ref-park-miller). Park's and Miller's article is also the basis for a recipe in the second edition of _Numerical Recipes in C_ [3](#ref-numerical-recipes-1). For the most part, this implementation follows _Numerical Recipes_.  
+
 
 ### Period
 
-Numerical Recipes states that this generator has a period of approximately 2.1e9. (4)  
+The generator has a period of approximately 2.1e9 [4](#ref-numerical-recipes-2). 
+
+
+
+
+## Examples
+
+``` javascript
+var lcg = require( 'compute-lcg' );
+
+// TODO: include example code here
+```
+
+To run the example code from the top-level application directory,
+
+``` bash
+$ node ./examples/index.js
+```
+
 
 ## Tests
 
@@ -100,17 +115,23 @@ $ make view-cov
 
 #### Test Notes
 
-Test data for this module are generated from the C code in *Numerical Recipes*.
+Test data generated from the C code published in [_Numerical Recipes_](#ref-numerical-recipes-1).
+
 
 ## References
 
-1. https://en.wikipedia.org/wiki/Linear_ congruential_ generator
+<a name="ref-wikipedia"></a>
+1. [Linear Congruential Generator](https://en.wikipedia.org/wiki/Linear_ congruential_ generator)
 
+<a name="ref-park-miller"></a>
 2. S.K. Park and K.W. Miller (1988). "Random Number Generators: Good Ones Are Hard To Find". Communications of the ACM 31 (10): 1192-1201.
 
-3. William H. Press, et. al., *Numerical Recipes in C: The Art of Scientific Computing*, Section 7.1 "Uniform Deviates" (2d ed. 1992) (hereinafter Numerical Recipes).  
+<a name="ref-numerical-recipes-1"></a>
+3. William H. Press, et. al., _Numerical Recipes in C: The Art of Scientific Computing_, Section 7.1 "Uniform Deviates" (2d ed. 1992) (hereinafter _Numerical Recipes_).  
 
-4. Numerical Recipes, p. 279.
+<a name="ref-numerical-recipes-2"></a>
+4. _Numerical Recipes_, p. 279.
+
 
 ## License
 
@@ -122,20 +143,20 @@ Test data for this module are generated from the C code in *Numerical Recipes*.
 Copyright &copy; 2014. rgizz.
 
 
-[npm-image]: http://img.shields.io/npm/v/compute-htfrand.svg
-[npm-url]: https://npmjs.org/package/compute-htfrand
+[npm-image]: http://img.shields.io/npm/v/compute-lcg.svg
+[npm-url]: https://npmjs.org/package/compute-lcg
 
-[travis-image]: http://img.shields.io/travis/compute-io/htfrand/master.svg
-[travis-url]: https://travis-ci.org/compute-io/htfrand
+[travis-image]: http://img.shields.io/travis/compute-io/lcg/master.svg
+[travis-url]: https://travis-ci.org/compute-io/lcg
 
-[coveralls-image]: https://img.shields.io/coveralls/compute-io/htfrand/master.svg
-[coveralls-url]: https://coveralls.io/r/compute-io/htfrand?branch=master
+[coveralls-image]: https://img.shields.io/coveralls/compute-io/lcg/master.svg
+[coveralls-url]: https://coveralls.io/r/compute-io/lcg?branch=master
 
-[dependencies-image]: http://img.shields.io/david/compute-io/htfrand.svg
-[dependencies-url]: https://david-dm.org/compute-io/htfrand
+[dependencies-image]: http://img.shields.io/david/compute-io/lcg.svg
+[dependencies-url]: https://david-dm.org/compute-io/lcg
 
-[dev-dependencies-image]: http://img.shields.io/david/dev/compute-io/htfrand.svg
-[dev-dependencies-url]: https://david-dm.org/dev/compute-io/htfrand
+[dev-dependencies-image]: http://img.shields.io/david/dev/compute-io/lcg.svg
+[dev-dependencies-url]: https://david-dm.org/dev/compute-io/lcg
 
-[github-issues-image]: http://img.shields.io/github/issues/compute-io/htfrand.svg
-[github-issues-url]: https://github.com/compute-io/htfrand/issues
+[github-issues-image]: http://img.shields.io/github/issues/compute-io/lcg.svg
+[github-issues-url]: https://github.com/compute-io/lcg/issues
