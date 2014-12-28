@@ -58,10 +58,10 @@ In this implementation, the constants `a`, `c`, and `m` have the following value
 <pre>
 a = 16807
 c = 0
-m = 2^31 - 1 // 2147483647
+m = 2^31 - 1 => 2147483647
 </pre>
 
-The values for `a`, `c`, and `m` are taken from Park and Miller, "Random Number Generators: Good Ones Are Hard To Find" [[2]](#ref-park-miller). Park's and Miller's article is also the basis for a recipe in the second edition of _Numerical Recipes in C_ [[3]](#ref-numerical-recipes-1). For the most part, this implementation follows _Numerical Recipes_.  
+The values for `a`, `c`, and `m` are taken from Park and Miller, ["Random Number Generators: Good Ones Are Hard To Find"](#ref-park-miller). Park's and Miller's article is also the basis for a recipe in the second edition of [_Numerical Recipes in C_](#ref-numerical-recipes-1). For the most part, this implementation follows [_Numerical Recipes_](#ref-numerical-recipes-1).  
 
 
 ### Period
@@ -76,7 +76,25 @@ The generator has a period of approximately 2.1e9 [[4]](#ref-numerical-recipes-2
 ``` javascript
 var lcg = require( 'compute-lcg' );
 
-// TODO: include example code here
+// Create a new (unseeded) generator:
+var rand = lcg();
+
+// Generate some pseudorandom numbers...
+for ( var i = 0; i < 10; i++ ) {
+	console.log( rand() );
+}
+
+// Create a new (seeded) generator:
+rand = lcg( 1 );
+for ( var j = 0; j < 10; j++ ) {
+	console.log( rand() );
+}
+
+// Create a new generator seeded with the same seed as previous generator:
+rand = lcg( 1 );
+for ( var k = 0; k < 10; k++ ) {
+	console.log( rand() );
+}
 ```
 
 To run the example code from the top-level application directory,
@@ -121,7 +139,7 @@ Test data generated from the C code published in [_Numerical Recipes_](#ref-nume
 ## References
 
 <a name="ref-wikipedia"></a>
-1. [Linear Congruential Generator](https://en.wikipedia.org/wiki/Linear_ congruential_ generator)
+1. Wikipedia. [Linear Congruential Generator](https://en.wikipedia.org/wiki/Linear_ congruential_ generator)
 
 <a name="ref-park-miller"></a>
 2. S.K. Park and K.W. Miller (1988). "Random Number Generators: Good Ones Are Hard To Find". Communications of the ACM 31 (10): 1192-1201.
