@@ -47,10 +47,10 @@ var val = rand();
 
 ## Notes
 
-For a general lcg reference, see [Wikipedia](#ref-wikipedia]. Linear congruential generators use the following recurrence relation:
+For a general lcg reference, see [Wikipedia](#ref-wikipedia). Linear congruential generators use the following recurrence relation:
 
 <pre>
-X_n+1 = ( a*X_n + c ) mod m
+X_{n+1} = ( a*X_n + c ) mod m
 </pre>
 
 In this implementation, the constants `a`, `c`, and `m` have the following values: 
@@ -61,12 +61,12 @@ c = 0
 m = 2^31 - 1 // 2147483647
 </pre>
 
-The values for `a`, `c`, and `m` are taken from Park and Miller, "Random Number Generators: Good Ones Are Hard To Find" [2](#ref-park-miller). Park's and Miller's article is also the basis for a recipe in the second edition of _Numerical Recipes in C_ [3](#ref-numerical-recipes-1). For the most part, this implementation follows _Numerical Recipes_.  
+The values for `a`, `c`, and `m` are taken from Park and Miller, "Random Number Generators: Good Ones Are Hard To Find" [[2]](#ref-park-miller). Park's and Miller's article is also the basis for a recipe in the second edition of _Numerical Recipes in C_ [[3]](#ref-numerical-recipes-1). For the most part, this implementation follows _Numerical Recipes_.  
 
 
 ### Period
 
-The generator has a period of approximately 2.1e9 [4](#ref-numerical-recipes-2). 
+The generator has a period of approximately 2.1e9 [[4]](#ref-numerical-recipes-2). 
 
 
 
