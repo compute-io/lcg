@@ -141,9 +141,9 @@ describe( 'compute-lcg', function() {
 		assert.deepEqual( arr1, arr2 );
 	});
 
-	describe( 'seed = 1', function() {
+	describe( 'seed = 1', function test() {
 
-		it( 'should return comparable results to the published C implementation', function() {
+		it( 'should return comparable results to the published C implementation', function test() {
 			var N = fixture1.length,
 				rand = lcg( 1 ),
 				arr = rand( N );
@@ -154,9 +154,9 @@ describe( 'compute-lcg', function() {
 		});
 	});
 
-	describe( 'seed = 12345678', function() {
+	describe( 'seed = 12345678', function tests() {
 
-		it( 'should return comparable results to the published C implementation', function() {
+		it( 'should return comparable results to the published C implementation', function test() {
 			var N = fixture2.length,
 				rand = lcg( 12345678 ),
 				arr = rand( N );
