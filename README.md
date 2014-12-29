@@ -36,12 +36,19 @@ To seed the generator, provide a `numeric` seed
 var rand = lcg( 1234 );
 ```
 
-#### rand()
+#### rand( [n] )
 
 Returns a pseudorandom floating-point `number` between `0` and `1`.
 
 ``` javascript
 var val = rand();
+```
+
+To return an `array` of pseudorandom numbers, provide an `array` length `n`
+
+``` javascript
+var arr = rand( 10 );
+// returns [...]
 ```
 
 
@@ -90,11 +97,9 @@ for ( var j = 0; j < 10; j++ ) {
 	console.log( rand() );
 }
 
-// Create a new generator seeded with the same seed as previous generator:
+// Create a new generator seeded with the same seed as the previous generator:
 rand = lcg( 1 );
-for ( var k = 0; k < 10; k++ ) {
-	console.log( rand() );
-}
+console.log( rand( 10 ).join( '\n' ) );
 ```
 
 To run the example code from the top-level application directory,

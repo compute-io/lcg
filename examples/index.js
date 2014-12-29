@@ -19,12 +19,10 @@ for ( var j = 0; j < 10; j++ ) {
 	console.log( rand() );
 }
 
-// Create a new generator seeded with the same seed as previous generator:
+// Create a new generator seeded with the same seed as the previous generator:
 rand = lcg( 1 );
 
 console.log( '\nSeeded (same seed):\n' );
-for ( var k = 0; k < 10; k++ ) {
-	console.log( rand() );
-}
+console.log( rand( 10 ).join( '\n' ) );
 
 
