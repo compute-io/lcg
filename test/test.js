@@ -87,12 +87,15 @@ describe( 'compute-lcg', function() {
 		}
 	});
 
-	it( 'should throw an error if provided a non-numeric array length', function test() {
+	it( 'should throw an error if provided a non-positive integer array length', function test() {
 		var rand = lcg(),
 			values;
 
 		values = [
 			'5',
+			3.14,
+			-1,
+			0,
 			NaN,
 			null,
 			undefined,
