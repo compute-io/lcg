@@ -44,7 +44,7 @@ Returns a pseudorandom floating-point `number` between `0` and `1`.
 var val = rand();
 ```
 
-To return an `array` of pseudorandom numbers, provide an `array` length `n`
+If provided a length `n`, the method returns an `array` of pseudorandom numbers.
 
 ``` javascript
 var arr = rand( 10 );
