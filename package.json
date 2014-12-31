@@ -4,12 +4,12 @@
   "description": "A linear congruential pseudorandom number generator (lcg).",
   "author": {
     "name": "rgizz",
-    "email": "rgizz@users.noreply.github.com"
+    "email": "gztown2216@yahoo.com"
   },
   "contributors": [
     {
       "name": "rgizz",
-      "email": "rgizz@users.noreply.github.com"
+      "email": "gztown2216@yahoo.com"
     }
   ],
   "scripts": {
