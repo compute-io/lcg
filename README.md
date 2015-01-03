@@ -12,7 +12,6 @@ $ npm install compute-lcg
 ```
 For use in the browser, use [browserify](https://github.com/substack/node-browserify).
 
-
 ## Usage
 
 To use the module,
@@ -75,6 +74,9 @@ The values for `a`, `c`, and `m` are taken from Park and Miller, ["Random Number
 
 The generator has a period of approximately 2.1e9 [[4]](#ref-numerical-recipes-2). 
 
+### When To Use
+
+Some judgment is required in determining when to use lcg.  On the one hand, lcg is fast and uses little memory.  On the other hand, because it is a simple linear congruential generator it has recognized shortcomings. By today's PRNG standards, its period, on the order of 2e9, is relatively short.  More importantly, the "randomness quality" of its output is not of the best quality.  These defects rule it out, for example, in Monte Carlo simulations and in cryptographic applications.  For a more extended discussion of the advantages and disadvantages of LCGs see [[5]](#ref-wikipedia-2).
 
 
 
@@ -143,7 +145,7 @@ Test data generated from the C code published in [_Numerical Recipes_](#ref-nume
 
 ## References
 
-<a name="ref-wikipedia"></a>
+<a name="ref-wikipedia-1"></a>
 1. Wikipedia. [Linear Congruential Generator](https://en.wikipedia.org/wiki/Linear_ congruential_ generator)
 
 <a name="ref-park-miller"></a>
@@ -155,6 +157,8 @@ Test data generated from the C code published in [_Numerical Recipes_](#ref-nume
 <a name="ref-numerical-recipes-2"></a>
 4. _Numerical Recipes_, p. 279.
 
+<a name="ref-wikipedia-2"</a>
+5. Wikipedia. [Linear Congruential Generator](http://en.wikipedia.org/wiki/Linear_congruential_generator#Advantages_and_disadvantages_of_LCGs).
 
 ## License
 
