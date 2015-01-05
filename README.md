@@ -76,7 +76,7 @@ The generator has a period of approximately 2.1e9 [[4]](#ref-numerical-recipes-2
 
 ### When To Use
 
-Some judgment is required in determining when to use lcg.  On the one hand, lcg is fast and uses little memory.  On the other hand, because it is a simple linear congruential generator it has recognized shortcomings. By today's PRNG standards, its period, on the order of 2e9, is relatively short.  More importantly, the "randomness quality" of its output is not of the best quality.  These defects rule it out, for example, in Monte Carlo simulations and in cryptographic applications.  For a more extended discussion of the advantages and disadvantages of LCGs see [[5]](#ref-wikipedia-2).
+Some judgment is required in determining when to use lcg.  On the one hand, lcg is fast and uses little memory.  On the other hand, because it is a simple linear congruential generator it has recognized shortcomings. By today's PRNG standards, its period, on the order of 2e9, is relatively short.  More importantly, the "randomness quality" of its output is not of the best quality.  These defects rule it out, for example, in Monte Carlo simulations and in cryptographic applications.  For a more on the advantages and disadvantages of LCGs see [[5]](#ref-wikipedia-2).
 
 
 
