@@ -65,8 +65,11 @@ describe( 'compute-lcg', function() {
 		expect( lcg() ).to.be.a( 'function' );
 	});
 
-	it( 'should throw an error if not provided a numeric seed', function test() {
+	it( 'should throw an error if not provided a positive integer seed', function test() {
 		var values = [
+			0,
+			-1,
+			8.0325,
 			'5',
 			NaN,
 			null,
