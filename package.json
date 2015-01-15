@@ -1,10 +1,10 @@
 {
   "name": "compute-lcg",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A linear congruential pseudorandom number generator (lcg).",
   "author": {
     "name": "rgizz",
-    "email": "gztown2216@yahoo.com" 
+    "email": "gztown2216@yahoo.com"
   },
   "contributors": [
     {
