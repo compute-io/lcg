@@ -23,7 +23,7 @@ var lcg = require( 'compute-lcg' );
 
 #### lcg( [seed] )
 
-Returns a pseudorandom number generator.
+Returns pseudorandom number generator.
 
 ``` javascript
 var rand = lcg();
@@ -37,7 +37,7 @@ var rand = lcg( 1234 );
 
 #### rand( [n] )
 
-Returns a pseudorandom floating-point `number` between `0` and `1`.
+Returns a pseudorandom floating-point `number` between `0` and `1`, exclusive of the endpoints.
 
 ``` javascript
 var val = rand();
@@ -67,8 +67,7 @@ c = 0
 m = 2^31 - 1 => 2147483647
 </pre>
 
-The values for `a`, `c`, and `m` are taken from Park and Miller, ["Random Number Generators: Good Ones Are Hard To Find"](#ref-park-miller). Park's and Miller's article is also the basis for a recipe in the second edition of [_Numerical Recipes in C_](#ref-numerical-recipes-1). For the most part, this implementation follows [_Numerical Recipes_](#ref-numerical-recipes-1).  
-
+The values for `a`, `c`, and `m` are taken from Park and Miller, ["Random Number Generators: Good Ones Are Hard To Find"](#ref-park-miller). Park's and Miller's article is also the basis for a recipe in the second edition of [_Numerical Recipes in C_](#ref-numerical-recipes-1). 
 
 ### Period
 
@@ -77,8 +76,6 @@ The generator has a period of approximately 2.1e9 [[4]](#ref-numerical-recipes-2
 ### When To Use
 
 Lcg is fast and uses little memory.  On the other hand, because the generator is a simple linear congruential generator, it has recognized shortcomings. By today's PRNG standards, its period, on the order of 2e9, is relatively short.  More importantly, the "randomness quality" of its output is not of the best quality.  These defects rule it out, for example, in Monte Carlo simulations and in cryptographic applications.  For more on the advantages and disadvantages of LCGs see [[5]](#ref-wikipedia-2).
-
-
 
 ## Examples
 
@@ -137,11 +134,6 @@ Istanbul creates a `./reports/coverage` directory. To access an HTML version of 
 ``` bash
 $ make view-cov
 ```
-
-#### Test Notes
-
-Test data generated from the C code published in [_Numerical Recipes_](#ref-numerical-recipes-1).
-
 
 ## References
 
