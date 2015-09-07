@@ -29,7 +29,8 @@ Returns pseudorandom number generator.
 var rand = lcg();
 ```
 
-To seed the generator, provide a positive `integer` seed
+To seed the generator, provide a positive `integer` seed; if no seed is provided, lcg provides
+a random seed.  
 
 ``` javascript
 var rand = lcg( 1234 );
