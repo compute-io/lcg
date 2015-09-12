@@ -18,38 +18,34 @@ var expect = chai.expect,
 
 // FIXTURES //
 
-// NOTE: generated from the C code published in Numerical Recipes.
+// NOTE: generated from independent implementation.
 
 // seed = 1
 var fixture1 = [
-	0.242586125267011,
-	0.145007362656764,
-	0.138744172239091,
-	0.873302822407942,
-	0.600536210276436,
-	0.212086116062517,
-	0.531352662728798,
-	0.444202482907196,
-	0.711130221239817,
-	0.965628377611576,
-	0.316142517754874,
-	0.407295906174600
+	7.82636925942561e-06,
+	0.131537788143166,
+	0.755605322195033,
+	0.458650131923449,
+	0.532767237412169,
+	0.21895918632809,
+	0.0470446162144861,
+	0.678864716868319,
+	0.679296405836612,
+	0.934692895940828
 ];
 
 // seed = 12345678
 var fixture2 = [
-	0.984259987242641,
-	0.457605587065968,
-	0.977101817716426,
-	0.150250359973987,
-	0.257800082796160,
-	0.845991555063981,
-	0.580065960334645,
-	0.168595344372371,
-	0.581952866437823,
-	0.881826220490889,
-	0.853287790367979,
-	0.207892714630762
+	0.621834785967057,
+	0.177247748327091,
+	0.00290613342211867,
+	0.84338442554855,
+	0.762040194478836,
+	0.609548605796671,
+	0.683417624646527,
+	0.20001743417234,
+	0.693016134525191,
+	0.522172964886843
 ];
 
 
@@ -149,7 +145,7 @@ describe( 'compute-lcg', function() {
 
 	describe( 'seed = 1', function test() {
 
-		it( 'should return comparable results to the published C implementation', function test() {
+		it( 'should return comparable results to independent implementation', function test() {
 			var N = fixture1.length,
 				rand = lcg( 1 ),
 				arr = rand( N );
@@ -162,7 +158,7 @@ describe( 'compute-lcg', function() {
 
 	describe( 'seed = 12345678', function tests() {
 
-		it( 'should return comparable results to the published C implementation', function test() {
+		it( 'should return comparable results to independent implementation', function test() {
 			var N = fixture2.length,
 				rand = lcg( 12345678 ),
 				arr = rand( N );
