@@ -70,6 +70,8 @@ m = 2^31 - 1 => 2147483647
 
 The values for `a`, `c`, and `m` are taken from Park and Miller, ["Random Number Generators: Good Ones Are Hard To Find"](#ref-park-miller). Park's and Miller's article is also the basis for a recipe in the second edition of [_Numerical Recipes in C_](#ref-numerical-recipes-1). 
 
+The maximum possible product is 16807 * (m - 1), or approximately 2^46.  
+
 ### Period
 
 The generator has a period of approximately 2.1e9 [[4]](#ref-numerical-recipes-2). 
